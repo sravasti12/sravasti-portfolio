@@ -9,6 +9,21 @@ import {
 
 const projects = [
   {
+    id: "identity-gateway",
+    number: "01",
+    name: "Agent Identity Gateway",
+    category: "AI Security · IAM · Agentic Systems",
+    summary: "A security-focused gateway that gives AI workloads distinct identities and enforces human-to-agent delegated access to protected tools.",
+    problem: "AI agents often access enterprise tools through shared API keys or long-lived credentials. Those credentials blur the distinction between the human authorizing an action and the workload executing it, making least-privilege access and auditability difficult.",
+    approach: "A FastAPI gateway integrates Keycloak OAuth 2.0/OIDC identity and delegation with a protected MCP tool server. OPA/Rego evaluates default-deny authorization, while agent lifecycle checks and correlated SQLite audit events provide additional governance and traceability. Z3 checks selected authorization invariants.",
+    highlights: ["Separate human and workload identity validation", "Audience-, scope- and lifetime-restricted delegated access", "Default-deny OPA/Rego authorization for MCP tools", "Agent lifecycle governance and credential-free audit logging", "Defensive regression tests and Z3 authorization checks"],
+    stack: ["Python", "FastAPI", "Keycloak", "OAuth 2.0/OIDC", "MCP", "OPA/Rego", "Z3", "SQLite", "Docker", "GitHub Actions"],
+    github: "https://github.com/sravasti12/agent-identity-gateway",
+    accent: "cyan",
+    icon: ShieldCheck,
+    status: "v1.0.0 · Demo release"
+  },
+  {
     id: "ota",
     number: "01",
     name: "OTA Campaign Verifier",
@@ -57,6 +72,7 @@ const projects = [
 
 const skills = [
   { group: "AI & Intelligent Systems", items: ["Machine Learning", "Generative AI", "RAG", "Agentic AI", "LangGraph", "PyTorch", "Scikit-learn"], icon: BrainCircuit },
+  { group: "AI Security & IAM", items: ["OAuth 2.0", "OpenID Connect", "Workload Identity", "MCP", "OPA / Rego", "JWT"], icon: ShieldCheck },
   { group: "Backend & Data", items: ["Python", "FastAPI", "REST APIs", "MongoDB", "SQL", "Pydantic", "NetworkX"], icon: Database },
   { group: "Engineering & Delivery", items: ["Docker", "Git", "GitHub Actions", "CI/CD", "Pytest", "Linux", "Z3"], icon: Workflow }
 ];
@@ -167,7 +183,7 @@ function App() {
         <a className="scroll-cue" href="#about"><span>SCROLL TO EXPLORE</span><ArrowDown size={14}/></a>
       </section>
 
-      <section className="ticker" aria-label="Areas of focus"><div className="ticker-track">{Array(2).fill(["AGENTIC AI","·","ENGINEERING SYSTEMS","·","MACHINE LEARNING","·","AUTOMOTIVE TECHNOLOGY","·","MLOPS","·","RAG"]).flat().map((item, i) => <span key={i} className={item === "·" ? "ticker-dot" : ""}>{item}</span>)}</div></section>
+      <section className="ticker" aria-label="Areas of focus"><div className="ticker-track">{Array(2).fill(["AGENTIC AI","·","AI SECURITY","·","IDENTITY & ACCESS","·","ENGINEERING SYSTEMS","·","MACHINE LEARNING","·","AUTOMOTIVE TECHNOLOGY","·","MLOPS","·","RAG"]).flat().map((item, i) => <span key={i} className={item === "·" ? "ticker-dot" : ""}>{item}</span>)}</div></section>
 
       <section className="section-wrap about-section" id="about">
         <SectionHeading eyebrow="01 / THE PERSON BEHIND THE CODE" title={<>Curiosity meets<br/><span className="gradient-text">engineering discipline.</span></>} />
@@ -179,13 +195,13 @@ function App() {
           <motion.div className="about-detail" variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <p>My work spans agentic AI workflows, machine learning, backend development and engineering-focused platforms. I enjoy understanding a problem from the ground up, designing a system around it, and making its behavior observable through tests and evidence.</p>
             <p>I’m particularly interested in automotive technology, industrial intelligence and applied AI — domains where reliability, traceability and thoughtful engineering matter.</p>
-            <div className="about-facts"><div><span className="fact-number">03</span><span>FEATURED PROJECTS</span></div><div><span className="fact-number">AI +</span><span>ENGINEERING FOCUS</span></div><div><span className="fact-number">∞</span><span>ROOM TO EXPLORE</span></div></div>
+            <div className="about-facts"><div><span className="fact-number">04</span><span>FEATURED PROJECTS</span></div><div><span className="fact-number">AI +</span><span>ENGINEERING FOCUS</span></div><div><span className="fact-number">∞</span><span>ROOM TO EXPLORE</span></div></div>
           </motion.div>
         </div>
       </section>
 
       <section className="section-wrap projects-section" id="projects">
-        <SectionHeading eyebrow="02 / SELECTED WORK" title={<>Projects built to<br/><span className="gradient-text">solve meaningful problems.</span></>} note="A selection of engineering projects exploring safety, product data intelligence and industrial reliability."/>
+        <SectionHeading eyebrow="02 / SELECTED WORK" title={<>Projects built to<br/><span className="gradient-text">solve meaningful problems.</span></>} note="A selection of engineering projects exploring AI security, safety, product data intelligence and industrial reliability."/>
         <div className="project-list">
           {projects.map((project, index) => {
             const Icon = project.icon;
@@ -202,7 +218,7 @@ function App() {
                 <div className="art-grid"/>
                 <div className="art-orbit art-orbit-one"/><div className="art-orbit art-orbit-two"/>
                 <div className="art-center"><Icon size={42} strokeWidth={1.15}/></div>
-                <span className="art-code">SYS_{project.number}</span><span className="art-coordinate">0{index + 1} / 03</span>
+                <span className="art-code">SYS_{project.number}</span><span className="art-coordinate">0{index + 1} / 04</span>
                 <div className="art-bars"><i/><i/><i/><i/><i/><i/><i/></div>
               </div>
               <a className="project-github" href={project.github} target="_blank" rel="noreferrer" aria-label={`Open ${project.name} GitHub repository`}><Github size={18}/></a>
