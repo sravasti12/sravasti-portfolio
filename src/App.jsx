@@ -19,13 +19,14 @@ const projects = [
     highlights: ["Separate human and workload identity validation", "Audience-, scope- and lifetime-restricted delegated access", "Default-deny OPA/Rego authorization for MCP tools", "Agent lifecycle governance and credential-free audit logging", "Defensive regression tests and Z3 authorization checks"],
     stack: ["Python", "FastAPI", "Keycloak", "OAuth 2.0/OIDC", "MCP", "OPA/Rego", "Z3", "SQLite", "Docker", "GitHub Actions"],
     github: "https://github.com/sravasti12/agent-identity-gateway",
+    release: "https://github.com/sravasti12/agent-identity-gateway/releases/tag/v1.0.0",
     accent: "cyan",
     icon: ShieldCheck,
     status: "v1.0.0 · Demo release"
   },
   {
     id: "ota",
-    number: "01",
+    number: "02",
     name: "OTA Campaign Verifier",
     category: "Automotive · Safety Engineering",
     summary: "A deterministic planning and verification system for safer over-the-air ECU update campaigns.",
@@ -40,7 +41,7 @@ const projects = [
   },
   {
     id: "plm",
-    number: "02",
+    number: "03",
     name: "AutoPLM Twin",
     category: "Automotive · Agentic AI · Digital Twin",
     summary: "An engineering intelligence platform for validating PLM migrations and exploring product-configuration impact.",
@@ -55,7 +56,7 @@ const projects = [
   },
   {
     id: "reliability",
-    number: "03",
+    number: "04",
     name: "Equipment Reliability Intelligence",
     category: "Industrial AI · MLOps · RAG",
     summary: "An end-to-end reliability analytics platform combining predictive maintenance, operational monitoring and knowledge retrieval.",
@@ -113,7 +114,7 @@ function ProjectModal({ project, onClose }) {
       <ul className="highlight-list">{project.highlights.map((item) => <li key={item}><ChevronRight size={15}/>{item}</li>)}</ul>
       <h3 className="modal-section-label">TECH STACK</h3>
       <div className="tag-list">{project.stack.map((tag) => <span key={tag}>{tag}</span>)}</div>
-      <a className="button button-primary modal-cta" href={project.github} target="_blank" rel="noreferrer">Explore repository <ArrowUpRight size={16}/></a>
+      <div className="hero-actions"><a className="button button-primary modal-cta" href={project.github} target="_blank" rel="noreferrer">Explore repository <ArrowUpRight size={16}/></a>{project.release && <a className="button button-ghost modal-cta" href={project.release} target="_blank" rel="noreferrer">View v1.0.0 release <ExternalLink size={15}/></a>}</div>
     </motion.div>
   </motion.div>;
 }
